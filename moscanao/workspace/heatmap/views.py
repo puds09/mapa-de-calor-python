@@ -22,8 +22,8 @@ class Mapa:
         pass
 
     def cep(self, local):
-        # geolocator = Nominatim(user_agent="HEATMAP")
-        geolocator = GoogleV3("AIzaSyCv11Ow__BGA0Yv7MmUZZQBg5StJoQLgcQ")
+        geolocator = Nominatim(user_agent="HEATMAP")
+
 
         # geocodes.append((-15.762507, -47.869977, 2))
         # location = geolocator.geocode("Universidade de Brasília, Brasília-DF, Brasil")
