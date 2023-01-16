@@ -8,7 +8,6 @@ from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_protect
 import folium
 from folium.plugins import HeatMap
-from geopy.geocoders import GoogleV3
 from geopy.geocoders import Nominatim
 
 
@@ -17,6 +16,14 @@ class Mapa:
     # mapa = folium.Map([0, 0], zoom_start = 15)
     global geocodes
     geocodes = []
+
+    #Static known coordenates:
+    geocodes.append( ((-15,76), (-47,86)) )
+    geocodes.append( ((-15,76666), (-47,8738)) )
+    geocodes.append( ((-15,755999), (-47,870851)) )
+    geocodes.append( ((-15,760564), (-47,466709)) )
+    geocodes.append( ((-15,760564), (-47,466709)) )
+    geocodes.append( ((-15,760564), (-47,466709)) )
 
     def __init__(self):
         pass
@@ -51,6 +58,7 @@ class Mapa:
 def heat_form(request):
     return render(request, "heatmap/form.html")
 
+# Find the coordenates and put its dataFrama on map
 def get_data(request):
     
     # Initiating Mapa Class to take the static argument mapa
@@ -75,6 +83,7 @@ def get_data(request):
     # Actually populating
     HeatMap(dfa).add_to(mapa)
 
+    # Go to "Informações Enviadas com Sucesso - Veja mapa de calor"
     return render(request, "heatmap/response.html")
     # return render(request, "heatmap/response.html", {"mapa_html": mapa_html})
 
