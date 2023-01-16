@@ -9,9 +9,9 @@
 <body>
 
     <form action={% url 'getData' %}  method="GET">{% csrf_token %} 
-        <label for="local">Digite o local do ocorrido</label><br>
+        <label for="local" style="color:red">Digite o local do ocorrido</label><br>
         <input type="text" id="local" name="local"><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Enviar dados">
     </form>
 
 </body>

@@ -17,13 +17,20 @@ class Mapa:
     global geocodes
     geocodes = []
 
+    (1, "2")
+
     #Static known coordenates:
-    geocodes.append( ((-15,76), (-47,86)) )
-    geocodes.append( ((-15,76666), (-47,8738)) )
-    geocodes.append( ((-15,755999), (-47,870851)) )
-    geocodes.append( ((-15,760564), (-47,466709)) )
-    geocodes.append( ((-15,760564), (-47,466709)) )
-    geocodes.append( ((-15,760564), (-47,466709)) )
+    geocodes.append( (-15.76, -47.86) )
+    geocodes.append( (-15.76666, -47.8738) )
+    geocodes.append( (-15.76666, -47.8738) )
+    geocodes.append( (-15.76666, -47.8738) )
+    geocodes.append( (-15.76666, -47.8738) )
+    geocodes.append( (-15.76666, -47.8738) )
+    geocodes.append( (-15.76666, -47.8738) )
+    geocodes.append( (-15.755999, -47.870851 ) )
+    geocodes.append( (-15.760564, -47.466709 ) )
+    geocodes.append( (-15.760564, -47.466709 ) )
+    geocodes.append( (-15.760564, -47.466709 ) )
 
     def __init__(self):
         pass
@@ -41,9 +48,8 @@ class Mapa:
             pass
 
         # location = geolocator.geocode({"Florida, United States of America"})
-        location = geolocator.geocode(components={"country": "BR", "state": "Distrito Federal"})
-        print(location, "LLLLLLLLLLLLLLLL")
-        print("em cima!!!!!!!!!!!!")
+        # location = geolocator.geocode(components={"country": "BR", "state": "Distrito Federal"})
+        location = geolocator.geocode({"country": "BR", "state": "Distrito Federal"})
         geocodes.append((location.latitude, location.latitude))
 
         # location = geolocator.geocode("Pavilhão João Calmon") 
@@ -74,6 +80,8 @@ def get_data(request):
 
     mapa = mapa.mapa
 
+
+
     # Structuring the data
     dados = np.matrix(geocodes)
     dfa = pd.DataFrame(dados)
@@ -94,8 +102,9 @@ def render_map(request):
     mapa = Mapa()
     # Getting the static mapa to add it the geocodes
     mapa = mapa.mapa
-
-    mapa_html = mapa.save(os.path.join('workspace/heatmap/templates/heatmap', 'mapa_renderizado.html'))
+    print("emabixo")
+    print(os.getcwd())
+    mapa_html = mapa.save(os.path.join('moscanao/workspace/heatmap/templates/heatmap', 'mapa_renderizado.html'))
     # mapa = mapa.get_root().render()
     # mapa_html_string = mapa.get_root().render()
     # mapa_html_string = mapa._repr_html_()
