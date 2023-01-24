@@ -9,7 +9,9 @@ from geopy.geocoders import Nominatim
 
 class Mapa:
     mapa = folium.Map([-15.762507, -47.869977], zoom_start = 8)
+    # Para guardar o mapa em html
     mapa_renderizado = ""
+    #  Para guardar as coordenadas
     global geocodes
     geocodes = []
 
