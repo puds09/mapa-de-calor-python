@@ -4,15 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="form.scss" rel="stylesheet/scss" type="text/css">
+    <title>Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #fff, dodgerblue);
+            }
+
+        h1 {
+            margin: 0 0 24px 0;
+        }
+        .center {
+            position: relative;
+            padding: 50px 50px;
+            background: #fff;
+            border-radius: 10px;
+            }
+            .center h1 {
+            font-size: 2em;
+            border-left: 5px solid dodgerblue;
+            padding: 10px;
+            color: #000;
+            letter-spacing: 5px;
+            margin-bottom: 60px;
+            font-weight: bold;
+            padding-left: 10px;
+            }
+            .center .inputbox {
+            position: relative;
+            width: 300px;
+            height: 50px;
+            margin-bottom: 50px;
+            }
+            .center .inputbox input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: 2px solid #000;
+            outline: none;
+            background: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            }
+            .center .inputbox:last-child {
+            margin-bottom: 0;
+            }
+            .center .inputbox span {
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            font-size: 1em;
+            transition: 0.6s;
+            font-family: sans-serif;
+            }
+            .center .inputbox input:focus ~ span,
+            .center .inputbox input:valid ~ span {
+            transform: translateX(-13px) translateY(-35px);
+            font-size: 1em;
+            }
+            button {
+                color: #fff;
+                width: 50%;
+                top: 0;
+                left: 0;
+                outline: none;
+                background: none;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 1.2em;
+                background: dodgerblue;
+                border: #000;
+            }
+            button:hover {
+                background: linear-gradient(45deg, #fff, dodgerblue);
+            }
+    </style>
 </head>
 <body>
-
-    <form action={% url 'getData' %}  method="GET">{% csrf_token %} 
-        <label for="local" style="color:red">Digite o local do ocorrido</label><br>
-        <input type="text" id="local" name="local"><br>
-        <input type="submit" value="Enviar dados">
-    </form>
-
+    <div class="center">
+        <form action={% url 'getData' %}  method="GET">{% csrf_token %} 
+            <h1>MAPA DE CALOR</h1>
+            <div class="inputbox">
+                <input type="text" id="local" name="local" required="required">
+                <span>Digite o local do ocorrido</span>
+            </div>
+            <div> <button> Enviar dados </button> </div>
+            
+        </form>
+    </div>
 </body>
 </html>

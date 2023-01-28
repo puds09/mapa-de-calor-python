@@ -10,45 +10,110 @@
     <!-- Bootstrap library -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #fff, green
+            );
+            
+            }
+            .center {
+            position: relative;
+            padding: 50px 50px;
+            background: #fff;
+            border-radius: 10px;
+            }
+            .center h1 {
+            font-size: 2em;
+            border-left: 5px solid green;
+            padding: 10px;
+            color: #000;
+            letter-spacing: 5px;
+            margin-bottom: 60px;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+        .buttonn {
+            color: #fff;
+            width: 50%;
+            top: 0;
+            left: 0;
+            outline: none;
+            background: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            background: #229a66;
+            border: #000;
+        }
+        .buttonn:hover {
+            background: linear-gradient(45deg, #fff, green);
+        }
+        .divbutton{
+            text-align: center;
+            padding-bottom: 10%;
+            }
+            .btn{
+                color: #fff;
+                width: 50%;
+                top: 0;
+                left: 0;
+                outline: none;
+                background: none;
+                padding: 10px;
+                border-radius: 10px;
+                background: #229a00;
+                font-size: 1.2em;
+                border: #000;
+            }
+            .btn:hover {
+                background: linear-gradient(45deg, #fff, green);
+            }
+            </style>
+    <title>Mapa</title>
 </head>
 
 <body>
+    <div class="center">
+        <div class="divbutton">
+            <a href="../form"><button class="buttonn"> Voltar </button></a>
+        </div>
+        <h1>Informações <br> Enviadas <br> com Sucesso</h1>
+        
+        <!-- Trigger the modal with a button -->
+        <div class="divbutton">
+            <button type="button" class="btn btn-success openBtn">Veja o Mapa</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
 
-    <a href="../form">Formulário</a>
-
-    <h1>Informações Enviadas com Sucesso</h1>
-
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-success openBtn">Veja o Mapa</button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Mapa</h4>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <script>    
+            $('.openBtn').on('click',function(){
+                $('.modal-body').load('../modalMap',function(){
+                    $('#myModal').modal({show:true});
+                });
+            });
+        </script>
     </div>
 
-    <script>    
-        $('.openBtn').on('click',function(){
-            $('.modal-body').load('../modalMap',function(){
-                $('#myModal').modal({show:true});
-            });
-        });
-    </script>
-
+    
 </body>
 </html>
